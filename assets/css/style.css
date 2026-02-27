@@ -1,0 +1,205 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+/* -------------------- Primary set-up --------------------*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+    font-family: "Outfit", sans-serif;
+}
+
+
+/* -------------------- Colors --------------------*/
+ 
+:root {
+    /*Primary color*/
+     --black: #000000;
+    --white: #FFFFFF;
+
+    --slate900: #1A2A33;
+    --slate850: #21313B;
+    --slate800: #1F3641;
+    --slate300: #A8BFC9;
+    --slate100: #DBE8ED;
+   
+    /*Secondary color*/
+    --amber500: #c68d22;   
+    --amber400: #F2B137;
+    --amber300: #FFC860;
+    --teal500: #219f9b;
+    --teal400: #31C3BD;
+    --teal300: #65E9E4;
+}
+
+
+/* -------------------- Typography --------------------*/
+
+.preset1 {
+    font-size: 40px;
+    font-weight: 600;
+    line-height: 125%;
+    letter-spacing: 2.5px;
+    color: var(--black);
+}
+
+.preset2 {
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 125%;
+    letter-spacing: 1.5px;
+    color: var(--black);
+}
+
+.preset3 {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 125%;
+    letter-spacing: 1.25px;
+    color: var(--black);
+}
+
+.preset4 {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 125%;
+    letter-spacing: 1px;
+    color: var(--slate300);
+}
+
+.preset5-bold {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 130%;
+    letter-spacing: 0.9px;
+    color: var(--black);
+}
+
+.preset5-medium {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 130%;
+    letter-spacing: 0.9px;
+    color: var(--black);
+}
+
+.preset6 {
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 125%;
+    letter-spacing: 0.75px;
+    color: var(--black);
+}
+
+
+/* -------------------- Button --------------------*/
+
+.btn1 {
+    background-color: var(--amber400);
+    box-shadow: 0px 6px 0px 0px var(--amber500);
+    border: none;
+    border-radius: 0.5rem;
+    padding: 1rem 0;
+    margin-bottom: 2rem;
+    width: 100%;
+    cursor: pointer;
+}
+
+.btn1:hover {
+    background-color: var(--amber300);
+}
+
+.btn2 {
+    background-color: var(--teal400);
+    box-shadow: 0px 6px 0px 0px var(--teal500);
+    border: none;
+    border-radius: 0.5rem;
+    padding: 1rem 0;
+    margin-bottom: 2rem;
+    width: 100%;
+    cursor: pointer;
+}
+
+.btn2:hover {
+    background-color: var(--teal300);
+}
+
+.toggle-btn {
+    background-color: var(--black);
+    width: 80%;
+    margin: 0 auto;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    display: flex; 
+    flex-direction: row;
+}
+
+.toggle-x {
+    background-color: var(--black);
+    border: none;
+    width: 50%;
+    border-radius: 0.5rem;
+    height: 2.5rem;
+    cursor: pointer;
+}
+
+.toggle-o {
+    background-color: var(--slate300);
+    border: none;
+    width: 50%;
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+
+.toggle-x svg, .toggle-o svg {
+    width: 30px;
+    height: 30px;
+}
+
+
+/* -------------------- Body & Main --------------------*/
+
+body {
+    height: 100vh;
+    width: 100vw;
+    background-color: var(--black);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+main {
+    width: 40%;
+    max-width: 500px;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* -------------------- New Game Menu --------------------*/
+
+#new-start-menu div:first-of-type {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 1rem
+}
+
+#new-start-menu div:first-of-type img {
+    width: 2rem;
+}
+
+#new-start-menu div:nth-of-type(2) {
+    background-color: var(--slate800);
+    border-radius: 0.5rem;
+    margin: 2rem 0;
+}
+
+#new-start-menu div:nth-of-type(2) p {
+    text-align: center;
+    padding: 1rem 0;
+}
+
