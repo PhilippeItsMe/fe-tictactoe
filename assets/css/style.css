@@ -179,7 +179,11 @@ main {
 }
 
 
-/* -------------------- New Game Menu --------------------*/
+/* -------------------- New Game Section --------------------*/
+
+#new-start-menu {
+    display: inital;
+}
 
 #new-start-menu div:first-of-type {
     display: flex;
@@ -203,3 +207,27 @@ main {
     padding: 1rem 0;
 }
 
+
+/* -------------------- Game Section --------------------*/
+
+
+
+
+/* -------------------- Responsivness --------------------*/
+
+/* Tablet */
+@media screen and (max-width: 800px) {
+    main {
+        width: 80%;
+    }
+
+}
+
+/* Mobile */
+@media screen and (max-width: 400px) {
+        main {
+        width: 90%;
+    }
+
+
+}
