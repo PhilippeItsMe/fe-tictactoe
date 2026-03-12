@@ -18,7 +18,7 @@
 
         <!-------------------------- New Game Section -------------------------->
         
-        <section id="new-start-menu" aria-hidden="false">
+        <section id="new-start-menu">
             <div>
                 <img src="assets/images/icon-x.svg" alt="">
                 <img src="assets/images/icon-o.svg" alt=""> 
@@ -28,16 +28,16 @@
                 <div class="toggle-btn">
                     <button class="toggle-x">
                         <svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M15.002 1.147 32 18.145 48.998 1.147a3 3 0 0 1 4.243 0l9.612 9.612a3 3 0 0 1 0 4.243L45.855 32l16.998 16.998a3 3 0 0 1 0 4.243l-9.612 9.612a3 3 0 0 1-4.243 0L32 45.855 15.002 62.853a3 3 0 0 1-4.243 0L1.147 53.24a3 3 0 0 1 0-4.243L18.145 32 1.147 15.002a3 3 0 0 1 0-4.243l9.612-9.612a3 3 0 0 1 4.243 0Z" fill="#A8BFC9">
+                            <path id="path-x" d="M15.002 1.147 32 18.145 48.998 1.147a3 3 0 0 1 4.243 0l9.612 9.612a3 3 0 0 1 0 4.243L45.855 32l16.998 16.998a3 3 0 0 1 0 4.243l-9.612 9.612a3 3 0 0 1-4.243 0L32 45.855 15.002 62.853a3 3 0 0 1-4.243 0L1.147 53.24a3 3 0 0 1 0-4.243L18.145 32 1.147 15.002a3 3 0 0 1 0-4.243l9.612-9.612a3 3 0 0 1 4.243 0Z" fill="#A8BFC9"></path>
                         </svg>
                     </button>
                     <button class="toggle-o">
                         <svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M32 0c17.673 0 32 14.327 32 32 0 17.673-14.327 32-32 32C14.327 64 0 49.673 0 32 0 14.327 14.327 0 32 0Zm0 18.963c-7.2 0-13.037 5.837-13.037 13.037 0 7.2 5.837 13.037 13.037 13.037 7.2 0 13.037-5.837 13.037-13.037 0-7.2-5.837-13.037-13.037-13.037Z" fill="#000000"/>
+                            <path id="path-o" d="M32 0c17.673 0 32 14.327 32 32 0 17.673-14.327 32-32 32C14.327 64 0 49.673 0 32 0 14.327 14.327 0 32 0Zm0 18.963c-7.2 0-13.037 5.837-13.037 13.037 0 7.2 5.837 13.037 13.037 13.037 7.2 0 13.037-5.837 13.037-13.037 0-7.2-5.837-13.037-13.037-13.037Z" fill="#000000"/>
                         </svg>
                     </button>
                 </div>
-                <p class="preset4">REMEMBER : X GOES FIRST</p>
+                <p id="remember" class="preset4">REMEMBER : O GOES FIRST</p>
             </div>
             <button class="btn1 preset3">
                 NEW GAME (VS CPU)
@@ -49,7 +49,7 @@
 
         <!-------------------------- Game Section -------------------------->
 
-        <section id="game" aria-hidden="true">
+        <section id="game" inert>
             <!-- top row -->
             <div class="top-row">
                 <div>
@@ -70,15 +70,15 @@
             </div>
             <!-- tic-tac-toe -->
             <div class="tic-tac-toe">
-                <button class="tic-btn space1"></button>
-                <button class="tic-btn  space2"></button>
-                <button class="tic-btn  space3"></button>
-                <button class="tic-btn  space4"></button>
-                <button class="tic-btn  space5"></button>
-                <button class="tic-btn  space6"></button>
-                <button class="tic-btn  space7"></button>
-                <button class="tic-btn  space8"></button>
-                <button class="tic-btn  space9"></button>
+                <button class="tic-btn"></button>
+                <button class="tic-btn"></button>
+                <button class="tic-btn"></button>
+                <button class="tic-btn"></button>
+                <button class="tic-btn"></button>
+                <button class="tic-btn"></button>
+                <button class="tic-btn"></button>
+                <button class="tic-btn"></button>
+                <button class="tic-btn"></button>
             </div>
             <!-- bottom row | score -->
             <div class="bottom-row">
@@ -100,7 +100,7 @@
 
     <!-------------------------- Results & Replay Section (Lightbox) -------------------------->
     
-    <section class="lightbox-wrapper" aria-hidden="true">
+    <section class="lightbox-wrapper" inert>
         <div class="lightbox-line">
             <div class="lightbox-content">
                 <p class="preset4">YOU WON</p>

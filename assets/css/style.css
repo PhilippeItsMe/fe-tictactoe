@@ -31,10 +31,6 @@
     --teal300: #65E9E4;
 }
 
-.teal400 {
-    color: var(--teal400);
-}
-
 /* -------------------- Typography --------------------*/
 
 .preset1 {
@@ -225,7 +221,7 @@ main {
 /* -------------------- New Game Section --------------------*/
 
 #new-start-menu {
-    display: none;
+    display: initial;
 }
 
 #new-start-menu div:first-of-type {
@@ -310,7 +306,7 @@ main {
 
 .bottom-row {
     display: flex;
-    flex: row;
+    flex-direction: row;
     gap: 10px;
     margin-top: 10px;;
 }
@@ -346,7 +342,7 @@ main {
     width: 100vw;
     height: 100vh;
     z-index: 1000;
-    display: flex;
+    display: none; /* flex */
     justify-content: center;
     align-items: center;
 }
