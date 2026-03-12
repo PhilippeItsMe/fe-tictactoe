@@ -33,6 +33,9 @@ let newGame = 'cpu';
 
 // ---------------------------- Game section
 
+function ties () {
+    return
+}
 
 
 function checkWinner () {
@@ -46,7 +49,6 @@ function checkWinner () {
         if (array.every(i => xPosition.includes(i))) return console.log('x won');
         if (array.every(i => oPosition.includes(i))) return console.log('o won');
     }
-    
 }
 
 function updateBoard () {
@@ -78,6 +80,9 @@ function cupClick () {
 }
 
 function playerClick (index) {
+
+    if (board.every(i => i !== '')) {ties()}
+
     if (board[index] == '') {
         board[index] = firstMark;
         updateBoard();
