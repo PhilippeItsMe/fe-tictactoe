@@ -15,8 +15,10 @@
 
 <body>
     <main>
+
         <!-------------------------- New Game Section -------------------------->
-        <section id="new-start-menu">
+        
+        <section id="new-start-menu" aria-hidden="false">
             <div>
                 <img src="assets/images/icon-x.svg" alt="">
                 <img src="assets/images/icon-o.svg" alt=""> 
@@ -45,11 +47,9 @@
             </button>
         </section>
 
-
         <!-------------------------- Game Section -------------------------->
 
-
-        <section id="game">
+        <section id="game" aria-hidden="true">
             <!-- top row -->
             <div class="top-row">
                 <div>
@@ -70,15 +70,15 @@
             </div>
             <!-- tic-tac-toe -->
             <div class="tic-tac-toe">
-                <div class="tic-space space1"></div>
-                <div class="tic-space space2"></div>
-                <div class="tic-space space3"></div>
-                <div class="tic-space space4"></div>
-                <div class="tic-space space5"></div>
-                <div class="tic-space space6"></div>
-                <div class="tic-space space7"></div>
-                <div class="tic-space space8"></div>
-                <div class="tic-space space9"></div>
+                <button class="tic-btn space1"></button>
+                <button class="tic-btn  space2"></button>
+                <button class="tic-btn  space3"></button>
+                <button class="tic-btn  space4"></button>
+                <button class="tic-btn  space5"></button>
+                <button class="tic-btn  space6"></button>
+                <button class="tic-btn  space7"></button>
+                <button class="tic-btn  space8"></button>
+                <button class="tic-btn  space9"></button>
             </div>
             <!-- bottom row | score -->
             <div class="bottom-row">
@@ -97,4 +97,22 @@
             </div>
         </section>
     </main>
+
+    <!-------------------------- Results & Replay Section (Lightbox) -------------------------->
+    
+    <section class="lightbox-wrapper" aria-hidden="true">
+        <div class="lightbox-line">
+            <div class="lightbox-content">
+                <p class="preset4">YOU WON</p>
+                <div>
+                    <img src="assets/images/icon-x.svg" alt="">
+                    <p class="preset1teal400">TAKE THE ROUND</p>
+                </div>
+                <div>
+                    <button class="preset4slate900 grey-btn">QUIT</button>
+                    <button class="preset4slate900 yellow-btn">NEXT ROUND</button>
+                </div>
+            </div>
+        </div>
+    </section>
 </body>

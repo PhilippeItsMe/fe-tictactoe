@@ -31,6 +31,9 @@
     --teal300: #65E9E4;
 }
 
+.teal400 {
+    color: var(--teal400);
+}
 
 /* -------------------- Typography --------------------*/
 
@@ -40,6 +43,14 @@
     line-height: 125%;
     letter-spacing: 2.5px;
     color: var(--black);
+}
+
+.preset1teal400 {
+    font-size: 40px;
+    font-weight: 600;
+    line-height: 125%;
+    letter-spacing: 2.5px;
+    color: var(--teal400);
 }
 
 .preset2 {
@@ -64,6 +75,14 @@
     line-height: 125%;
     letter-spacing: 1px;
     color: var(--slate300);
+}
+
+.preset4slate900 {
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 125%;
+    letter-spacing: 1px;
+    color: var(--slate900);
 }
 
 .preset5-bold {
@@ -155,6 +174,30 @@
     height: 30px;
 }
 
+.grey-btn {
+    border: none;
+    background-color: var(--slate100);
+    border-radius: 0.3rem;
+    padding: 0.3rem 1rem;
+    cursor: pointer;
+}
+
+.grey-btn:hover {
+    background-color: var(--slate300);
+}
+
+.yellow-btn {
+    border: none;
+    background-color: var(--amber400);
+    border-radius: 0.3rem;
+    padding: 0.3rem 1rem;
+    cursor: pointer;
+}
+
+.yellow-btn:hover {
+    background-color: var(--amber500);
+}
+
 
 /* -------------------- Body & Main --------------------*/
 
@@ -181,9 +224,9 @@ main {
 
 /* -------------------- New Game Section --------------------*/
 
-/* #new-start-menu {
+#new-start-menu {
     display: none;
-} */
+}
 
 #new-start-menu div:first-of-type {
     display: flex;
@@ -212,6 +255,7 @@ main {
 
 #game {
     width: 100%;
+    display: none;
 }
 
 .top-row {
@@ -254,12 +298,14 @@ main {
     gap: 10px;
 }
 
-.tic-space {
+.tic-btn {
     display: block;
     width: 100%;
     aspect-ratio: 1;
     background-color: var(--slate800);
     border-radius: 0.5rem;
+    border: none;
+    cursor: pointer;
 }
 
 .bottom-row {
@@ -290,6 +336,50 @@ main {
 }
 
 
+/* -------------------- Results & Replay Section (Lightbox)  --------------------*/
+
+.lightbox-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.75);
+    width: 100vw;
+    height: 100vh;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.lightbox-line {
+    width: 100%;
+    padding: 2rem 0;
+    background-color: var(--slate800);
+}
+
+.lightbox-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.lightbox-content > div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+.lightbox-content div:first-of-type {
+    margin-bottom: 1rem;
+}
+
+.lightbox-content div:first-of-type img {
+    height: 2rem;
+    aspect-ratio: 1;
+}
+
+
 /* -------------------- Responsivness --------------------*/
 
 /* Tablet */
@@ -297,7 +387,6 @@ main {
     main {
         width: 80%;
     }
-
 }
 
 /* Mobile */
@@ -305,6 +394,4 @@ main {
         main {
         width: 90%;
     }
-
-
 }
