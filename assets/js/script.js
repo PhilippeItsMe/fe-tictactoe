@@ -4,6 +4,11 @@
 const newStartMenu = document.querySelector('#new-start-menu');
 const game = document.querySelector('#game');
 const lightboxWrapper = document.querySelector('.lightbox-wrapper');
+const lightboxTitle = document.querySelector('.lightbox-content .preset4');
+const lightboxIcon = document.querySelector('.lightbox-content img');
+const lightboxMessage = document.querySelector('.lightbox-content .preset1teal400');
+const quitButton = document.querySelector('.grey-btn');
+const nextRoundButton = document.querySelector('.yellow-btn');
 
 // Game section
 const cells = document.querySelectorAll('.tic-btn');
@@ -16,6 +21,7 @@ const winningConditions = [
 
 let clickButton = '';
 let board = ['', '', '', '', '', '', '', '', ''];
+let roundOver = false;
 
 // New game section
 const toggleX= document.querySelector('.toggle-x');
@@ -31,13 +37,23 @@ let firstMark = 'o';
 let newGame = 'cpu';
 
 
-// ---------------------------- Game section
+// ---------------------------- Game Section vs CPU
 
+/**
+ * Check if the game is tied.
+ */
 function ties () {
-    return
+    roundOver = true;
+    lightboxTitle.textContent = 'TIE GAME';
+    lightboxMessage.textContent = 'NO ONE WON THIS ROUND';
+    lightboxIcon.style.display = 'none';
+    lightboxWrapper.style.display = 'flex';
+    lightboxWrapper.removeAttribute('inert');
 }
 
-
+/**
+ * Check whether one of the winning conditions is met.
+ */
 function checkWinner () {
     let xPosition = [];
     let oPosition = [];
@@ -46,11 +62,41 @@ function checkWinner () {
         if (value === 'o') {oPosition.push(index)};
         }
     for (const array of winningConditions) {
-        if (array.every(i => xPosition.includes(i))) return console.log('x won');
-        if (array.every(i => oPosition.includes(i))) return console.log('o won');
+            if (array.every(i => xPosition.includes(i))) {
+                roundOver = true;
+                lightboxTitle.textContent = firstMark === 'x' ? 'YOU WON' : (newGame === 'cpu' ? 'CPU WON' : 'PLAYER 1 WON');
+                lightboxMessage.textContent = 'TAKE THE ROUND';
+                lightboxIcon.src = 'assets/images/icon-x.svg';
+                lightboxIcon.alt = 'X';
+                lightboxIcon.style.display = 'block';
+                lightboxWrapper.style.display = 'flex';
+                lightboxWrapper.removeAttribute('inert');
+                return 'x';
+            }
+            if (array.every(i => oPosition.includes(i))) {
+                roundOver = true;
+                lightboxTitle.textContent = firstMark === 'o' ? 'YOU WON' : (newGame === 'cpu' ? 'CPU WON' : 'PLAYER 2 WON');
+                lightboxMessage.textContent = 'TAKE THE ROUND';
+                lightboxIcon.src = 'assets/images/icon-o.svg';
+                lightboxIcon.alt = 'O';
+                lightboxIcon.style.display = 'block';
+                lightboxWrapper.style.display = 'flex';
+                lightboxWrapper.removeAttribute('inert');
+                return 'o';
+            }
     }
+
+        if (board.every(i => i !== '')) {
+            ties();
+            return 'tie';
+        }
+
+        return null;
 }
 
+/**
+ * Render the board values into the UI.
+ */
 function updateBoard () {
     for (const [index, value] of board.entries()) {
         if (value === 'x') {
@@ -61,32 +107,36 @@ function updateBoard () {
             cells[index].textContent = '';
         }
     }
-    checkWinner ();
 }
 
+/**
+ * Play a random CPU move.
+ */
 function cupClick () {
-    cpuIndex =  Math.floor(Math.random() * 9);
-    if (board[cpuIndex] == '') {
-        if (firstMark == 'x') {
-            board[cpuIndex] = 'o';21
-            
-        }
-        else {
-            board[cpuIndex] = 'x';
-        }
-        updateBoard();
-        checkWinner(board);
-        } 
+    if (roundOver) return;
+
+    let cpuIndex;
+    do {
+        cpuIndex = Math.floor(Math.random() * 9);
+    } while (board[cpuIndex] !== '');
+
+    board[cpuIndex] = firstMark == 'x' ? 'o' : 'x';
+    updateBoard();
+    checkWinner();
 }
-
+/**
+     * Handle a player click on one cell.
+ */
 function playerClick (index) {
-
-    if (board.every(i => i !== '')) {ties()}
+    if (roundOver) return;
 
     if (board[index] == '') {
         board[index] = firstMark;
         updateBoard();
-        checkWinner(board);
+        const result = checkWinner();
+        if (!roundOver && newGame === 'cpu' && result === null) {
+            cupClick();
+        }
         };
 }
 
@@ -95,8 +145,11 @@ cells.forEach((cell, index) => {
 });
 
 
-// ---------------------------- New game section
+// ---------------------------- New Game Section
 
+/**
+ * Show the game area and hide the start menu.
+ */
 function startGame () {
     newStartMenu.style.display = 'none';
     newStartMenu.setAttribute('inert', '');
@@ -126,4 +179,19 @@ btn1.addEventListener('click',(e) => {
 btn2.addEventListener('click',(e) => {
     newGame = 'player';
     startGame ();
+});
+
+nextRoundButton.addEventListener('click', () => {
+    board = ['', '', '', '', '', '', '', '', ''];
+    roundOver = false;
+    lightboxWrapper.style.display = 'none';
+    lightboxWrapper.setAttribute('inert', '');
+    lightboxIcon.style.display = 'block';
+    lightboxTitle.textContent = 'YOU WON';
+    lightboxMessage.textContent = 'TAKE THE ROUND';
+    updateBoard();
+});
+
+quitButton.addEventListener('click', () => {
+    location.reload();
 });
